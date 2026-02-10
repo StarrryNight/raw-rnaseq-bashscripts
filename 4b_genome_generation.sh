@@ -6,8 +6,8 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=4
 #SBATCH --mem=32G
-#SBATCH --output=4b_genome_generation_%j.out
-#SBATCH --error=4b_genome_generation_%j.err
+#SBATCH --output=logs/4b_genome_generation_%j.out
+#SBATCH --error=logs/4b_genome_generation_%j.err
 
 module load star/2.7.11b
 
