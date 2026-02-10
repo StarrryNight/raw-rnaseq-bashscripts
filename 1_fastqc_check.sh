@@ -6,8 +6,8 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=4
 #SBATCH --mem=16G
-#SBATCH --output=fastqc_raw_%j.out
-#SBATCH --error=fastqc_raw_%j.err
+#SBATCH --output=logs/fastqc_raw_%j.out
+#SBATCH --error=logs/fastqc_raw_%j.err
 
 module load fastqc
 

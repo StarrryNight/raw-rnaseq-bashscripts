@@ -1,0 +1,4 @@
+	STAR --runThreadN 8 --genomeDir data/hybrid_star_index --readFilesIn outputs/fastqc/after_trim/trimmed_R1_paired.fq.gz outputs/fastqc/after_trim/trimmed_R2_paired.fq.gz --readFilesCommand zcat --outFileNamePrefix outputs/alignment/yac_sample_1 --outSAMtype BAM SortedByCoordinate --outSAMunmapped Within
+	STAR version: 2.7.11b   compiled: 2024-05-29T23:13:52+00:00 node1:/tmp/ebuser/avx512/STAR/2.7.11b/GCCcore-12.3-gentoo/STAR-2.7.11b/source
+Feb 10 12:36:59 ..... started STAR run
+Feb 10 12:36:59 ..... loading genome

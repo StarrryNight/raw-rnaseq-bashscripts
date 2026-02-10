@@ -1,0 +1,6 @@
+!!!!! WARNING:  Could not ls outputs/fastqc/after_trim/trimmed_R1_paired.fastq.gz
+
+EXITING: because of fatal INPUT file error: could not open read file: outputs/fastqc/after_trim/trimmed_R1_paired.fastq.gz
+SOLUTION: check that this file exists and has read permision.
+
+Feb 10 12:34:58 ...... FATAL ERROR, exiting
