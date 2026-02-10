@@ -6,8 +6,8 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=4
 #SBATCH --mem=16G
-#SBATCH --output=fastqc_raw_%j.out
-#SBATCH --error=fastqc_raw_%j.err
+#SBATCH --output=4b_concatanate_fastas_%j.out
+#SBATCH --error=4b_concatanate_fastas_%j.err
 
 HUMAN_FA=data/hg38.fa
 YEAST_FA=data/sacCer3.fa
