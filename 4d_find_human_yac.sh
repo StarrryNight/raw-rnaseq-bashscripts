@@ -13,4 +13,8 @@ module load samtools
 
 YAC_SAMPLE_FILE=outputs/alignment/yac_sample_1Aligned.sortedByCoord.out.bam
 
-samtools idxstats ${YAC_SAMPLE_FILE}
+samtools index ${YAC_SAMPLE_FILE}
+samtools idxstats ${YAC_SAMPLE_FILE} |\
+grep -E "^chr([0-9]{1,2}|[XY])[[:space:]]" | \
+sort -k3,3rn |\
+head -n 5
