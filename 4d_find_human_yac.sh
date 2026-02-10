@@ -13,9 +13,17 @@ module load samtools
 
 YAC_SAMPLE_FILE=outputs/alignment/yac_sample_1Aligned.sortedByCoord.out.bam
 
-samtools index ${YAC_SAMPLE_FILE}
-samtools idxstats ${YAC_SAMPLE_FILE} | \
+TOP_CHR=$(samtools idxstats ${YAC_SAMPLE_FILE} | \
 grep "^chr" | \
 awk '$2 > 10000000' | \
 sort -k3,3rn | \
-head -n 5
+head -n 1 |\
+cut -f1)
+
+echo "Top chromosome is: $TOP_CHR"
+
+#TODO rename duplicated chrom names
+samtools view ${YAC_SAMPLE_FILE} "$TOP_CHR"| \
+    awk '{print $4}' | \
+    sort -n | \
+    sed -n '1p;$p'
