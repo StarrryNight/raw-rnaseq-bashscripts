@@ -5,8 +5,8 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=8
 #SBATCH --mem=32G
-#SBATCH --output=logs/5_create_bw_%j.out
-#SBATCH --error=logs/5_create_bw_%j.err
+#SBATCH --output=logs/6_match_fa_%j.out
+#SBATCH --error=logs/6_match_fa_%j.err
 
 REF_FASTA="data/hg38.fa"
 
