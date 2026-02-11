@@ -22,8 +22,7 @@ STAR --runThreadN 8 \
      --genomeDir $INDEX_DIR \
      --readFilesIn $FASTQ_R1 $FASTQ_R2 \
      --readFilesCommand zcat \
+     --alignIntronMax 500000 \
      --outFileNamePrefix $OUT_PREFIX \
      --outSAMtype BAM SortedByCoordinate \
      --outSAMunmapped Within  # This keeps unmapped reads in the BAM file for later
-
-samtools index ${OUT_PREFIX}Aligned.sortedByCoord.out.bam
