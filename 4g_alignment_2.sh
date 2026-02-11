@@ -5,8 +5,8 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=4
 #SBATCH --mem=40G
-#SBATCH --output=logs/4c_alignment_%j.out
-#SBATCH --error=logs/4c_alignment_%j.err
+#SBATCH --output=logs/4g_alignment_2_%j.out
+#SBATCH --error=logs/4g_alignment_2_%j.err
 
 module load star/2.7.11b
 module load samtools
