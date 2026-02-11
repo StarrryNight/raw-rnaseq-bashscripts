@@ -46,5 +46,7 @@ echo "Extracting coverage data..."
 samtools depth -a -r "${TOP_CHR}:${START}-${END}" ${YAC_SAMPLE_FILE} | \
     awk 'NR % 100 == 0' > coverage_data.txt
 
+touch my_yac.bed
+echo -e "${TOP_CHR}\t${START}\t${END}" > my_yac.bed
 
 python graph_yac.py --input=coverage_data.txt --output=coverage_plot.png
