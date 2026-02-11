@@ -2,3 +2,4 @@ data
 outputs
 .vscode
 logs
+venv

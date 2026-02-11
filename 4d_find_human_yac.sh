@@ -21,11 +21,30 @@ head -n 1 |\
 cut -f1)
 
 echo "Top chromosome is: $TOP_CHR"
+
+
+NUM_READS=$(samtools view -c ${YAC_SAMPLE_FILE} "$TOP_CHR")
+START_INDEX=$(( NUM_READS / 10 ))
+END_INDEX=$(( NUM_READS * 9 / 10 ))
+
+
 #TODO rename duplicated chrom names
-# This sorts all 1.2M positions and looks at the middle 
-# coordinates to find the 'core' of the YAC.
-samtools view ${YAC_SAMPLE_FILE} "$TOP_CHR" | \
+# This is exactly what you wrote, and it works great 
+# because Bash turns the two lines into "number1 number2"
+read START END <<< $(samtools view ${YAC_SAMPLE_FILE} "$TOP_CHR" 2>/dev/null | \
     awk '{print $4}' | \
     sort -n | \
-    sed -n '100000,1100000p' | \
-    sed -n '1p;$p'
+    sed -n "${START_INDEX}p;${END_INDEX}p"| \
+    tr "\n" " ")
+
+echo "Calculated YAC region: $START to $END"
+
+# 3. Get Depth for the SPECIFIC region
+# Instead of sed, we use the -r flag in samtools depth to target the YAC.
+# We also downsample (NR % 100) so the Python plot isn't sluggish.
+echo "Extracting coverage data..."
+samtools depth -a -r "${TOP_CHR}:${START}-${END}" ${YAC_SAMPLE_FILE} | \
+    awk 'NR % 100 == 0' > coverage_data.txt
+
+
+python graph_yac.py --input=coverage_data.txt --output=coverage_plot.png
