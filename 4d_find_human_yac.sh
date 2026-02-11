@@ -21,9 +21,11 @@ head -n 1 |\
 cut -f1)
 
 echo "Top chromosome is: $TOP_CHR"
-
 #TODO rename duplicated chrom names
-samtools view ${YAC_SAMPLE_FILE} "$TOP_CHR"| \
+# This sorts all 1.2M positions and looks at the middle 
+# coordinates to find the 'core' of the YAC.
+samtools view ${YAC_SAMPLE_FILE} "$TOP_CHR" | \
     awk '{print $4}' | \
     sort -n | \
+    sed -n '100000,1100000p' | \
     sed -n '1p;$p'

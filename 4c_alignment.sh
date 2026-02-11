@@ -10,6 +10,7 @@
 #SBATCH --error=logs/4c_alignment_%j.err
 
 module load star/2.7.11b
+module load samtools
 
 # Define your paths
 INDEX_DIR="data/hybrid_star_index"
@@ -24,3 +25,5 @@ STAR --runThreadN 8 \
      --outFileNamePrefix $OUT_PREFIX \
      --outSAMtype BAM SortedByCoordinate \
      --outSAMunmapped Within  # This keeps unmapped reads in the BAM file for later
+
+samtools index ${OUT_PREFIX}Aligned.sortedByCoord.out.bam
