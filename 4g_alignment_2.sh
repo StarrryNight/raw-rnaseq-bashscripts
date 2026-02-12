@@ -12,7 +12,7 @@ module load star/2.7.11b
 module load samtools
 
 # Define your paths
-INDEX_DIR="data/hybrid_star_index"
+INDEX_DIR="data/hybrid_star_index_2"
 FASTQ_R1="outputs/fastqc/after_trim/trimmed_R1_paired.fq.gz"
 FASTQ_R2="outputs/fastqc/after_trim/trimmed_R2_paired.fq.gz"
 OUT_PREFIX="outputs/alignment/yac_sample_1"

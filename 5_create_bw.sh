@@ -16,6 +16,8 @@ BAM="outputs/alignment/${SAMPLE}Aligned.sortedByCoord.out.bam"
 OUTDIR="outputs/bigwig/${SAMPLE}"
 mkdir -p ${OUTDIR}
 
+module load samtools
+samtools index ${BAM}
 # Generate Forward Strand BigWig
 bamCoverage -b ${BAM} \
     -o ${OUTDIR}/${SAMPLE}_forward.bw \
