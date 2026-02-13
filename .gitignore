@@ -4,3 +4,6 @@ outputs
 logs
 venv
 final_output
+.claude
+*.fa 
+*.fai

@@ -1,11 +1,11 @@
 #!/bin/bash -l
 
-#SBATCH --time=2:00:00
+#SBATCH --time=4:00:00
 #SBATCH --account=rrg-cdeboer
 #SBATCH --job-name=fastqc_raw
 #SBATCH --nodes=1
-#SBATCH --ntasks=4
-#SBATCH --mem=32G
+#SBATCH --ntasks=8
+#SBATCH --mem=40G
 #SBATCH --output=logs/4b_genome_generation_%j.out
 #SBATCH --error=logs/4b_genome_generation_%j.err
 

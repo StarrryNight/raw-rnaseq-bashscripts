@@ -24,7 +24,7 @@ fi
 # 4. Extract and build
 # We use a subshell to rename the header on the fly to avoid temp files
 samtools faidx "$HUMAN_FASTA" "${TOP_CHR}:${START}-${END}" | \
-sed "s/^>.*/>human_yac/" > human_yac_insert.fa
+sed "s/^>.*/>${TOP_CHR}/" > human_yac_insert.fa
 
 # Check if the extraction actually worked
 if [ ! -s human_yac_insert.fa ]; then

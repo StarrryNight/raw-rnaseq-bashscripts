@@ -11,7 +11,7 @@
 
 module load star/2.7.11b
 
-GENOME_DIR=data/hybrid_star_index_2
+GENOME_DIR=data/after_genome_generation_2
 YEAST_HUMAN_FILE=yeast_human_chimeric.fa
 
 mkdir -p ${GENOME_DIR}

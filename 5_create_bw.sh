@@ -11,8 +11,8 @@
 
 
 # Update these to match your actual directory structure
-SAMPLE="yac_sample_1"
-BAM="outputs/alignment/${SAMPLE}Aligned.sortedByCoord.out.bam"
+SAMPLE="yac_sample_1_"
+BAM="outputs/alignment_2/${SAMPLE}Aligned.sortedByCoord.out.bam"
 OUTDIR="outputs/bigwig/${SAMPLE}"
 mkdir -p ${OUTDIR}
 
